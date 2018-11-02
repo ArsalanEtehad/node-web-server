@@ -1,16 +1,16 @@
 const hbs = require('hbs') //handle bars
 const express = require('express');
+const fs = require('fs');
 
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
 
-app.set('view engine', 'hbs');
-
 var options = {
   extensions: ['htm', 'html']
 }
-app.use(express.static(__dirname + '/public',options))
+
+app.set('view engine', 'hbs');
 
 hbs.registerHelper('getCurrentYear', ()=>{
   return new Date().getFullYear();
@@ -20,17 +20,30 @@ hbs.registerHelper('screamIt',(text)=>{
   return text.toUpperCase() + '!!';
 })
 
+
+//ORDERS MATTER!
+//THIS AVOID US GOING TO ANY PAGE AFTER IT!!!
 //app.use is how we register a midleware and it takes a function
 app.use((req, res, next)=>{
-  //it's like getting in middle of the program and trying to run whatever is inside this.
-  //and it won't let the server proceed untill next() is called:
+  res.render('maintenance.hbs',{
+    pageTitle: 'Maintenance Page',
+    pContent: 'this page is under repair'
+  })
+  // next();
+})
+
+app.use(express.static(__dirname + '/public',options))
+
+app.use((req, res, next)=>{
   var now = new Date().toString();
-  //for further express methods:
-  //http://expressjs.com/en/4x/api.html#req
-  //http://expressjs.com/en/4x/api.html#res
-  console.log(`${now}: ${req.method} , ${req.url}`)
+  var log = `${now}: ${req.method} , ${req.url}`
+  console.log(log);
+  fs.appendFile('server.log',log + '\n',(err)=>{
+    console.log('unable to append the log to the file');
+  })
   next()
 })
+
 
 
 app.get('/', (req, res)=> {
@@ -52,6 +65,8 @@ app.get('/bad', (req,res)=>{
     errorMessage: 'Bad Request'
   })
 })
+
+
 
 app.listen(3000, ()=>{
   console.log('Server is running on port:3000 ...');
