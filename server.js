@@ -66,6 +66,14 @@ app.get('/bad', (req,res)=>{
   })
 })
 
+app.get('/portfolio',(req, res)=>{
+  res.render('portfolio.hbs', {
+    pageTitle: "Arsalan's Portfolio",
+    pContent: 'page content goes here'
+  })
+
+})
+
 
 
 app.listen(port, ()=>{
