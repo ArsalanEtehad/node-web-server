@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <mete charset = "utf-8">
-    <title>Home Page</title>
-  </head>
   <body>
-    <h1>{{pageTitle}}</h1>
+    <!-- uses pageTitle in header.hbs -->
+    {{> header}}
     <p>{{pContent}}</p>
   </body>
 
-  <footer>copyright © {{currentYear}}</footer>
+  {{> footer}}
 </html>
