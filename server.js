@@ -24,13 +24,13 @@ hbs.registerHelper('screamIt',(text)=>{
 //ORDERS MATTER!
 //THIS AVOID US GOING TO ANY PAGE AFTER IT!!!
 //app.use is how we register a midleware and it takes a function
-app.use((req, res, next)=>{
-  res.render('maintenance.hbs',{
-    pageTitle: 'Maintenance Page',
-    pContent: 'this page is under repair'
-  })
-  // next();
-})
+// app.use((req, res, next)=>{
+//   res.render('maintenance.hbs',{
+//     pageTitle: 'Maintenance Page',
+//     pContent: 'this page is under repair'
+//   })
+//   // next();
+// })
 
 app.use(express.static(__dirname + '/public',options))
 
