@@ -4,19 +4,21 @@ const express = require('express');
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
-hbs.registerHelper('getCurrentYear', ()=>{
-  return new Date().getFullYear();
-});
+
 app.set('view engine', 'hbs');
 
-
-//http://expressjs.com/en/4x/api.html#express.static
 var options = {
   extensions: ['htm', 'html']
 }
-//cool tool for any public page! no need to use get for each of the tabs. just put all in the specified directory.
-//try localhost:3000/help and localhost:3000/nothelp  :)
 app.use(express.static(__dirname + '/public',options))
+
+hbs.registerHelper('getCurrentYear', ()=>{
+  return new Date().getFullYear();
+});
+
+hbs.registerHelper('screamIt',(text)=>{
+  return text.toUpperCase() + '!!';
+})
 
 app.get('/', (req, res)=> {
   res.render('home.hbs',{
@@ -27,11 +29,12 @@ app.get('/', (req, res)=> {
 
 app.get('/about', (req, res)=>{
   res.render('about.hbs',{
-    pageTitle: 'About Page in HTML(Mustache)'
+    pageTitle: 'About Page in HTML(Mustache)',
+    pContent: 'this is about page'
   }) //'render' will render the current 'view engine'
 })
 
-app.get('/bad', (req, res)=>{
+app.get('/bad', (req,res)=>{
   res.send({
     errorMessage: 'Bad Request'
   })
