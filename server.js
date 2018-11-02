@@ -1,6 +1,7 @@
 const hbs = require('hbs') //handle bars
 const express = require('express');
 const fs = require('fs');
+
 const port = process.env.PORT || 3000;
 var app = express();
 
@@ -36,15 +37,13 @@ app.use(express.static(__dirname + '/public',options))
 
 app.use((req, res, next)=>{
   var now = new Date().toString();
-  var log = `${now}: ${req.method} , ${req.url}`
+  var log = `${now}: ${req.method} , ${req.url}, ${req}`
   console.log(log);
   fs.appendFile('server.log',log + '\n',(err)=>{
     console.log('unable to append the log to the file');
   })
   next()
 })
-
-
 
 app.get('/', (req, res)=> {
   res.render('home.hbs',{
@@ -71,7 +70,13 @@ app.get('/portfolio',(req, res)=>{
     pageTitle: "Arsalan's Portfolio",
     pContent: 'page content goes here'
   })
+})
 
+app.get('/forecast', (req, res)=>{
+  res.render('forecast.hbs',{
+    pageTitle: "weather forecast",
+    pContent: 'the app runs here CURRENTLY USING GET'
+  })
 })
 
 

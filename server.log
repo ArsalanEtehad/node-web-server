@@ -86,3 +86,18 @@ Fri Nov 02 2018 16:37:34 GMT+1100 (Australian Eastern Daylight Time): GET , /abo
 Fri Nov 02 2018 18:19:26 GMT+1100 (Australian Eastern Daylight Time): GET , /bad
 Fri Nov 02 2018 18:19:28 GMT+1100 (Australian Eastern Daylight Time): GET , /
 Fri Nov 02 2018 18:19:30 GMT+1100 (Australian Eastern Daylight Time): GET , /portfolio
+Fri Nov 02 2018 19:53:50 GMT+1100 (Australian Eastern Daylight Time): GET , /
+Fri Nov 02 2018 19:53:51 GMT+1100 (Australian Eastern Daylight Time): GET , /forecast
+Fri Nov 02 2018 19:53:52 GMT+1100 (Australian Eastern Daylight Time): GET , /forecast
+Fri Nov 02 2018 19:58:49 GMT+1100 (Australian Eastern Daylight Time): GET , /forecast
+Fri Nov 02 2018 19:58:51 GMT+1100 (Australian Eastern Daylight Time): GET , /portfolio
+Fri Nov 02 2018 19:58:52 GMT+1100 (Australian Eastern Daylight Time): GET , /about
+Fri Nov 02 2018 19:58:53 GMT+1100 (Australian Eastern Daylight Time): GET , /forecast
+Fri Nov 02 2018 20:03:29 GMT+1100 (Australian Eastern Daylight Time): GET , /forecast
+Fri Nov 02 2018 20:03:34 GMT+1100 (Australian Eastern Daylight Time): GET , /
+Fri Nov 02 2018 20:03:35 GMT+1100 (Australian Eastern Daylight Time): GET , /about
+Fri Nov 02 2018 20:03:36 GMT+1100 (Australian Eastern Daylight Time): GET , /portfolio
+Fri Nov 02 2018 20:03:37 GMT+1100 (Australian Eastern Daylight Time): GET , /forecast
+Fri Nov 02 2018 20:07:09 GMT+1100 (Australian Eastern Daylight Time): GET , /, undefined
+Fri Nov 02 2018 20:07:11 GMT+1100 (Australian Eastern Daylight Time): GET , /forecast, undefined
+Fri Nov 02 2018 20:07:18 GMT+1100 (Australian Eastern Daylight Time): GET , /forecast?, undefined
